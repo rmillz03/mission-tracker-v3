@@ -1,0 +1,61 @@
+<form action="/flightRoute/createFlight" method="POST">
+    <fieldset>
+        <legend>Create Mission</legend>
+        <div class="flex-container">
+           
+            <select class="flex-item" id="PC" name="PC">
+                <option selected value="1"> -- select PC -- </option>
+                <% pilots.forEach(flyboy => { %>
+                    <option value="<%= flyboy.crewID %>"><%= flyboy.rank %> <%= flyboy.firstName %> <%= flyboy.lastName %></option>
+             <% }); %>
+            </select>
+
+            <select class="flex-item" id="pilot2" name="pilot2">
+                <option selected value="1"> -- select pilot -- </option>
+                <% pilots.forEach(flyboy => { %>
+                    <option value="<%= flyboy.crewID %>"><%= flyboy.rank %> <%= flyboy.firstName %> <%= flyboy.lastName %></option>
+             <% }); %>
+            </select>
+
+            <select class="flex-item" id="chief1" name="chief1">
+                <option disabled selected value="1"> -- select Crew Chief -- </option>
+                <% chiefs.forEach(flyboy => { %>
+                    <option value="<%= flyboy.crewID %>"><%= flyboy.rank %> <%= flyboy.firstName %> <%= flyboy.lastName %></option>
+             <% }); %>
+            </select>
+
+            <select class="flex-item" id="chief2" name="chief2">
+                <option disabled selected value="1"> -- select Crew Chief -- </option>
+                <% chiefs.forEach(flyboy => { %>
+                    <option value="<%= flyboy.crewID %>"><%= flyboy.rank %> <%= flyboy.firstName %> <%= flyboy.lastName %></option>
+             <% }); %>
+            </select>
+
+            <select class="flex-item" id="chief3" name="chief3">
+                <option disabled selected value="1"> -- select Crew Chief -- </option>
+                <% chiefs.forEach(flyboy => { %>
+                    <option value="<%= flyboy.crewID %>"><%= flyboy.rank %> <%= flyboy.firstName %> <%= flyboy.lastName %></option>
+             <% }); %>
+            </select>
+           
+            <select class="flex-item" id="tailNum" name="tailNum">
+                <option disabled selected value> -- select tail number -- </option>
+                <% aircraft.forEach(plane => { %>
+                    <option value="<%= plane.tailNum %>"><%= plane.tailNum %></option>
+             <% }); %>
+            </select>
+            <input class="flex-item" type="string" id="ETD" name="ETD" placeholder="ETD"> <br/>
+            <input class="flex-item" type="string" id="ETA" name="ETA" placeholder="ETA"> <br/>
+            <input class="flex-item" type="number" id="julianDate" name="julianDate" value="<%= julian %>"> <br/>
+            <input class="flex-item" type="string" id="type" name="type" placeholder="Mission Type"> <br/>
+            <input class="flex-item" type="number" id="pax" name="pax" placeholder="# Pax"> <br/>
+            <input class="flex-item" type="number" id="cargo" name="cargo" placeholder="# lbs"> <br/>
+            <textarea class="flex-item" id="route" name="route" rows="4" cols="50" placeholder="Mission Route"></textarea>
+            
+        </div>
+    </fieldset>
+    <br />
+    <input class="btn" type="submit" name="submit" value="Submit Form">
+    <a class="btn" href="/userRoute/dashboard">CANCEL</a>
+</form>
+

@@ -1,0 +1,71 @@
+<form action="/crewRoute/quals" method="POST">
+    <fieldset>
+        <legend>Qualifications for <%= name %> </legend>
+        <div class="flex-container">
+            <div class="qual-item">
+                <input type="checkbox" id="PC" name="PC" value="1"> <br/>
+                <label for="PC">PC</label>    
+            </div>
+            <div class="qual-item">
+                <input type="checkbox" id="PI" name="PI" value="1"> <br/>
+                <label for="PI">PI</label>    
+            </div>
+            <div class="qual-item">
+                <input type="checkbox" id="flyUH60A" name="flyUH60A" value="1"> <br/>
+                <label for="flyUH60A">UH-60A</label>    
+            </div>
+            <div class="qual-item">
+                <input type="checkbox" id="flyUH60AP" name="flyUH60AP" value="1"> <br/>
+                <label for="flyUH60AP">UH-60A+</label>    
+            </div>
+            <div class="qual-item">
+                <input type="checkbox" id="flyUH60L" name="flyUH60L" value="1"> <br/>
+                <label for="flyUH60L">UH-60L</label>    
+            </div>
+            <div class="qual-item">
+                <input type="checkbox" id="flyUH72A" name="flyUH72A" value="1"> <br/>
+                <label for="flyUH72A">UH-72A</label>    
+            </div>
+            <div class="qual-item">
+                <input type="checkbox" id="flyCH53E" name="flyCH53E" value="1"> <br/>
+                <label for="flyCH53E">CH-53E</label>    
+            </div>
+            <div class="qual-item">
+                <input type="checkbox" id="flyFA18A" name="flyFA18A" value="1"> <br/>
+                <label for="flyFA18A">FA-18A</label>    
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    <input class="btn" type="submit" name="submit" value="Submit">
+    <a class="btn" href="/userRoute/dashboard">CANCEL</a>
+</form>
+
+<% if (pilot == 0)
+{ %>
+    <script>
+        document.getElementById('PC').disabled = true;
+        document.getElementById('PI').disabled = true;
+        
+        document.getElementById('PC').checked = false;
+        document.getElementById('PI').checked = false;
+    </script>
+<% } %>
+
+<script>
+    document.getElementById("quals").onload = function() {pilotFunc()};
+
+    function pilotFunc()
+    {
+        document.getElementById('flyCH53E').checked = true;
+        if (pilot == 1)
+        {
+            document.getElementById('PC').disabled = true;
+            document.getElementById('PI').disabled = true;
+            
+            document.getElementById('PC').checked = false;
+            document.getElementById('PI').checked = false;
+        }
+    }
+    
+</script>

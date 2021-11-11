@@ -1,0 +1,55 @@
+<form action="/crewRoute/createCrew" method="POST" id="myForm" name="myForm">
+    <fieldset>
+        <legend>Add Aircrew</legend>
+        <div class=".flex-container">
+            <input class="flex-item" type="text" id="first" name="first" placeholder="First Name"> <br/>
+            <input class="flex-item" type="text" id="last" name="last" placeholder="Last Name"> <br/>
+            <input class="flex-item" type="text" id="rank" name="rank" placeholder="Rank"> <br/>
+            <input class="flex-item" type="text" id="callSign" name="callSign" placeholder="Call Sign"> <br/>
+        </div>
+    </fieldset>
+    <br />
+    <br />
+    <fieldset>
+        <legend>Aircrew Type</legend>
+        <div class="flex-container">
+           
+                <div class="qual-item">
+                    <input type="radio" id="pilot" name="myRadios" value="pilot" checked />
+                    <label for="pilot">Pilot</label>
+                    <input type="radio" id="crew" name="myRadios" value="chief" />
+                    <label for="crew">Crew Chief</label>
+                </div>
+                <div class="qual-item">
+                    <input type="checkbox" id="raven" name="raven" value="1"> <br/>
+                    <label for="raven">Raven</label>    
+                </div>
+                <div class="qual-item">
+                    <input type="checkbox" id="rogue" name="rogue" value="1"> <br/>
+                    <label for="rogue">Rogue</label>    
+                </div>
+        </div>
+    </fieldset>
+    <br />
+    <input class="btn" type="submit" name="submit" value="Submit">
+    <a class="btn" href="/userRoute/dashboard">CANCEL</a>
+</form>
+
+<script>
+    var radios = document.querySelectorAll('input[type=radio][name="myRadios"]');
+    radios.forEach(radio => radio.addEventListener('change', () => {
+        if (document.getElementById('crew').checked)
+        {
+            document.getElementById('raven').disabled = true;
+            document.getElementById('rogue').disabled = true;
+            
+            document.getElementById('raven').checked = false;
+            document.getElementById('rogue').checked = false;
+        }
+        else
+        {
+            document.getElementById('raven').disabled = false;
+            document.getElementById('rogue').disabled = false;
+        }
+    }));
+</script>

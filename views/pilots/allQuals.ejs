@@ -1,0 +1,100 @@
+<br />
+<br />
+<div class="tablespace">
+    <fieldset>
+        <legend>Aircrew Qualifications</legend>
+<% if (aircrew.EOF) 
+   { %>
+        <p>Recordset is empty</p>
+<% }   
+   else
+   { %>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Name</th>
+                        <th style="text-align: center;">Pilot</th>
+                        <th style="text-align: center;">Crew Chief</th>
+                        <th style="text-align: center;">UH-60A</th>
+                        <th style="text-align: center;">UH-60A+</th>
+                        <th style="text-align: center;">UH-60L</th>
+                        <th style="text-align: center;">UH-72A</th>
+                        <th style="text-align: center;">CH-53E</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <% aircrew.forEach(crew => { %>
+                    <tr>
+                        <td> <%= crew.rank %> <%= crew.firstName %>  <%= crew.lastName %></td>
+                        
+                        <% if (crew.pilot=='1')
+                            { %>
+                                <td><center><i class="fas fa-check-circle"></i></center></td>
+                            <% }
+                            else
+                            { %>
+                                <td><center><i class="fas fa-times-circle"></i></center></td>
+                        <% } %>
+
+                        <% if (crew.crewChief=='1')
+                            { %>
+                                <td><center><i class="fas fa-check-circle"></i></center></td>
+                            <% }
+                            else
+                            { %>
+                                <td><center><i class="fas fa-times-circle"></i></center></td>
+                        <% } %>
+
+                        <% if (crew.UH60A=='1')
+                            { %>
+                                <td><center><i class="fas fa-check-circle"></i></center></td>
+                            <% }
+                            else
+                            { %>
+                                <td><center><i class="fas fa-times-circle"></i></center></td>
+                        <% } %>
+
+                        <% if (crew.UH60AP=='1')
+                            { %>
+                                <td><center><i class="fas fa-check-circle"></i></center></td>
+                            <% }
+                            else
+                            { %>
+                                <td><center><i class="fas fa-times-circle"></i></center></td>
+                        <% } %>
+
+                        <% if (crew.UH60L=='1')
+                            { %>
+                                <td><center><i class="fas fa-check-circle"></i></center></td>
+                            <% }
+                            else
+                            { %>
+                                <td><center><i class="fas fa-times-circle"></i></center></td>
+                        <% } %>
+
+                        <% if (crew.UH72A=='1')
+                            { %>
+                                <td><center><i class="fas fa-check-circle"></i></center></td>
+                            <% }
+                            else
+                            { %>
+                                <td><center><i class="fas fa-times-circle"></i></center></td>
+                        <% } %>
+
+                        <% if (crew.CH53E=='1')
+                            { %>
+                                <td><center><i class="fas fa-check-circle"></i></center></td>
+                            <% }
+                            else
+                            { %>
+                                <td><center><i class="fas fa-times-circle"></i></center></td>
+                        <% } %>
+                    </tr>
+             <% }) %>
+                </tbody>
+            </table>
+        </div>
+ <% } %>
+    </fieldset>
+</div>  

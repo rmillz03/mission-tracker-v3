@@ -1,0 +1,78 @@
+<br />
+<br />
+<div class="tablespace">
+<fieldset>
+    <legend>Aircrew Roster</legend>
+    <% if (aircrew.EOF) 
+    { %>
+         <p>Recordset is empty</p>
+ <% }   
+    else
+    { %>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Call Sign</th>
+                        <th>Pilot</th>
+                        <th>Crew Chief</th>
+                        <th>Rogue</th>
+                        <th>Raven</th>
+                    </tr>
+                </thead>
+                <tbody>
+         <% aircrew.forEach(crew => { %>
+                    <tr>
+                        <td> <%= crew.rank %> </td>
+                        <td> <%= crew.firstName %> </td>
+                        <td> <%= crew.lastName %> </td>
+                        <td> <%= crew.callSign %> </td>
+
+                     <% if (crew.pilot=='1')
+                        { %>
+                            <td><i class="fas fa-check-circle"></i></td>
+                     <% }
+                        else
+                        { %>
+                            <td><i class="fas fa-times-circle"></i></td>
+                     <% } %>
+
+                     <% if (crew.crewChief=='1')
+                        { %>
+                            <td><i class="fas fa-check-circle"></i></td>
+                     <% }
+                        else
+                        { %>
+                            <td><i class="fas fa-times-circle"></i></td>
+                     <% } %>
+              
+                     <% if (crew.raven=='1')
+                        { %>
+                            <td><i class="fas fa-check-circle"></i></td>
+                     <% }
+                        else
+                        { %>
+                            <td><i class="fas fa-times-circle"></i></td>
+                     <% } %>
+              
+                     <% if (crew.rogue=='1')
+                        { %>
+                            <td><i class="fas fa-check-circle"></i></td>
+                     <% }
+                        else
+                        { %>
+                            <td><i class="fas fa-times-circle"></i></td>
+                     <% } %>
+              
+                    </tr>
+         <% }) %>
+                </tbody>
+             </table>
+         </div>
+      
+     <% } %>
+</fieldset>
+</div>
